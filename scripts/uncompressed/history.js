@@ -613,7 +613,7 @@
 			// Fetch ID
 			var id = History.extractId(newState.url),
 				str;
-			
+
 			if ( !id ) {
 				// Find ID via State String
 				str = History.getStateString(newState);
@@ -787,7 +787,7 @@
 		History.getStateId = function(passedState){
 			// Prepare
 			var State, id;
-			
+
 			// Fetch
 			State = History.normalizeState(passedState);
 
@@ -807,7 +807,7 @@
 		History.getHashByState = function(passedState){
 			// Prepare
 			var State, hash;
-			
+
 			// Fetch
 			State = History.normalizeState(passedState);
 
@@ -1056,7 +1056,7 @@
 
 			// Unescape hash
 			while ( true ) {
-				tmp = window.unescape(result);
+				tmp = window.decodeURI(result);
 				if ( tmp === result ) {
 					break;
 				}
@@ -1890,11 +1890,11 @@
 
 			// For Internet Explorer
 			History.intervalList.push(setInterval(History.onUnload,History.options.storeInterval));
-			
+
 			// For Other Browsers
 			History.Adapter.bind(window,'beforeunload',History.onUnload);
 			History.Adapter.bind(window,'unload',History.onUnload);
-			
+
 			// Both are enabled for consistency
 		}
 
