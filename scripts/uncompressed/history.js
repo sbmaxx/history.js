@@ -128,11 +128,6 @@
          */
         History.options.sessionStorage = History.options.sessionStorage || false;
 
-        /**
-         * History.options.saveInitialState
-         */
-        History.options.saveInitialState = History.options.saveInitialState || false;
-
         // ====================================================================
         // Interval record
 
@@ -178,11 +173,8 @@
             // Prepare
             var
                 consoleExists = !(typeof console === 'undefined' || typeof console.log === 'undefined' || typeof console.log.apply === 'undefined'),
-                textarea = document.getElementById('log'),
                 message,
-                i,n,
-                args,arg
-                ;
+                args;
 
             // Write to Console
             if ( consoleExists ) {
@@ -194,33 +186,6 @@
                 else {
                     console.log.apply(console,[message,args]);
                 }
-            }
-            else {
-                message = ("\n"+arguments[0]+"\n");
-            }
-
-            // Write to log
-            for ( i=1,n=arguments.length; i<n; ++i ) {
-                arg = arguments[i];
-                if ( typeof arg === 'object' && typeof JSON !== 'undefined' ) {
-                    try {
-                        arg = JSON.stringify(arg);
-                    }
-                    catch ( Exception ) {
-                        // Recursive Object
-                    }
-                }
-                message += "\n"+arg+"\n";
-            }
-
-            // Textarea
-            if ( textarea ) {
-                textarea.value += message+"\n-----\n";
-                textarea.scrollTop = textarea.scrollHeight - textarea.clientHeight;
-            }
-            // No Textarea, No Console
-            else if ( !consoleExists ) {
-                alert(message);
             }
 
             // Return true
@@ -1618,7 +1583,6 @@
                 // Prepare
                 var stateId = false, newState = false, currentHash, currentState;
 
-
                 // Reset the double check
                 History.doubleCheckComplete();
 
@@ -1845,10 +1809,7 @@
         /**
          * Create the initial State
          */
-        // sbmaxx: we should call this not always
-        if (History.options.saveInitialState) {
-            History.saveState(History.storeState(History.extractState(document.location.href,true)));
-        }
+        History.saveState(History.storeState(History.extractState(document.location.href,true)));
 
         /**
          * Bind for Saving Store
