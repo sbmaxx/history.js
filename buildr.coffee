@@ -5,7 +5,7 @@ util = require 'util'
 # Options
 options =
 	watch: false
-	compress: true
+	compress: false
 
 # Configs
 configs =
