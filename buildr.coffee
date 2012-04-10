@@ -39,7 +39,7 @@ configs =
 
 		{
 			# Options
-			name: 'html4+html5+jquery'
+			name: 'bem'
 			watch: options.watch
 
 			# Paths
@@ -56,7 +56,7 @@ configs =
 			]
 
 			# Bundling
-			bundleScriptPath: __dirname+'/scripts/bundled/html4+html5/jquery.history.js'
+			bundleScriptPath: __dirname+'/scripts/bundled/bem/i-jquery__history.js'
 		}
 
 	]
