@@ -21,7 +21,7 @@
         clearTimeout = window.clearTimeout,
         setInterval = window.setInterval,
         clearInterval = window.clearInterval,
-        JSON = window.JSON ,
+        JSON = window.JSON,
         alert = window.alert,
         History = window.History = window.History||{}, // Public History Object
         history = window.history, // Old History Object
