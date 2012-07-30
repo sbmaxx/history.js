@@ -243,10 +243,11 @@
         History.emulated = {
             pushState: !Boolean(
                 window.history && window.history.pushState && window.history.replaceState
-                && !(
-                (/ Mobile\/([1-7][a-z]|(8([abcde]|f(1[0-8]))))/i).test(navigator.userAgent) /* disable for versions of iOS before version 4.3 (8F190) */
-                    || (/AppleWebKit\/5([0-2]|3[0-2])/i).test(navigator.userAgent) /* disable for the mercury iOS browser, or at least older versions of the webkit engine */
-                )
+                    && !(
+                    (/ Mobile\/([1-7][a-z]|(8([abcde]|f(1[0-8]))))/i).test(navigator.userAgent) /* disable for versions of iOS before version 4.3 (8F190) */
+                        || (/AppleWebKit\/5([0-2]|3[0-2])/i).test(navigator.userAgent) /* disable for the mercury iOS browser, or at least older versions of the webkit engine */
+                        || (/Bada\/([\d.]+)/i).test(navigator.userAgent)
+                    )
             ),
             hashChange: Boolean(
                 !(('onhashchange' in window) || ('onhashchange' in document))
