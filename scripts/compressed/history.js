@@ -1090,7 +1090,7 @@
             //History.debug('History.setHash: called',hash);
 
             // Prepare
-            adjustedHash = History.escapeHash(hash);
+            adjustedHash = hash;
 
             // Make Busy + Continue
             History.busy(true);

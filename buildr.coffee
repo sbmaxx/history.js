@@ -35,7 +35,7 @@ configs =
 	other: [
 
 		# -----------------------------
-		# JQUERY
+		# BEM HTML5
 
 		{
 			# Options
@@ -51,12 +51,32 @@ configs =
 			# Order
 			scriptsOrder: [
 				'history.adapter.jquery.js'
-				'history.html4.js'
 				'history.js'
 			]
 
 			# Bundling
 			bundleScriptPath: __dirname+'/scripts/bundled/bem/i-jquery__history.js'
+		},
+
+        # BEM HTML4
+		{
+			# Options
+			name: 'bem-html4'
+			watch: options.watch
+
+			# Paths
+			srcPath: __dirname+'/scripts/uncompressed'
+
+			# Compression (without outPath only the generated bundle files are compressed)
+			compressScripts: options.compress # Array or true or false
+
+			# Order
+			scriptsOrder: [
+                'history.html4.js'
+			]
+
+			# Bundling
+			bundleScriptPath: __dirname+'/scripts/bundled/bem/i-jquery__history_html4_yes.js'
 		}
 
 	]
